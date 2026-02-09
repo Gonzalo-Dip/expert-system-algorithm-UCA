@@ -1,48 +1,78 @@
-5. REGLAS DE NEGOCIO INICIALES 
-
-R1: Categorización por peso y tipo de vehículo  
-- Si el peso del pedido es hasta 5 kg, se asigna una moto como vehículo de entrega.  
-- Si el peso del pedido es mayor a 5 kg y hasta 40 kg, se asigna una camioneta.  
-- Si el peso del pedido es mayor a 40 kg, se asigna un camión.
-
-R2: Tiempos de entrega según el vehículo  
-- Para la moto:  
-  - Si el pedido se carga antes de las 16:00, la entrega es el mismo día.  
-  - Si se carga después de las 16:00, la entrega se realiza al siguiente día hábil.
-
-- Para la camioneta:  
-  - La entrega se realiza en el siguiente día hábil o, como máximo, en dos días.
-
-- Para el camión:  
-  - La entrega se realiza dentro de la misma semana.
-
-R3: Ajustes por costo del pedido  
-- Si el costo del pedido es alto, se puede aplicar una reducción en el tiempo de entrega, incluso si el peso es mayor.
-
-R4: Ajustes por urgencia  
-- Si el cliente paga un adicional por urgencia, se puede priorizar la entrega, acortando los tiempos estimados.
+5. REGLAS DE NEGOCIO 
 
 
 
 
-FALTA LA VARIABLE DE COSTO DE LA MERCADERIA EN LA INFERENCIA 
+R1: CATEGORIZACIÓN POR PESO Y TIPO DE VEHÍCULO
+
+* Si el peso del pedido es hasta 5 kg se asigna MOTO como vehículo de entrega.
+* Si el peso es mayor a 5 kg y hasta 40 kg se asigna CAMIONETA.
+* Si el peso es mayor a 40 kg se asigna CAMIÓN.
 
 
 
 
+R2: TIEMPOS SEGÚN VEHÍCULO
 
-Escenario A
-Pedido:
+* MOTO:
 
-* Peso alto
-* Costo alto
-* Con adicional
-  Resultado: Entrega rápida (ej: 12–24 hs)
+  * Si el pedido se carga antes de las 16:00 la entrega es el mismo día.
+  * Si el pedido se carga después de las 16:00 la entrega es al siguiente día hábil.
 
-Escenario B
-Pedido:
+* CAMIONETA:
 
-* Peso bajo
-* Costo bajo
-* Zona alejada
-  Resultado: Entrega lenta (ej: 48–72 hs)
+  * Entrega al siguiente día hábil.
+  * Como máximo en dos días hábiles.
+
+* CAMIÓN:
+
+  * Entrega dentro de la misma semana o maximo 5 dias habiles.
+
+
+
+
+R3: INCIDENCIA DEL VALOR DEL PEDIDO
+
+* Si el valor del pedido es ALTO:
+
+  * se otorga prioridad de preparación y despacho.
+  * puede adelantarse un nivel el tiempo de entrega.
+
+* Si el valor del pedido es MEDIO:
+
+  * se mantiene el tiempo estándar según el vehículo asignado.
+
+* Si el valor del pedido es BAJO:
+
+  * no se aplican prioridades especiales.
+  * el pedido puede agruparse con otros repartos.
+
+
+
+
+R4: COMBINACIÓN PESO Y VALOR
+
+* Pedido liviano y de valor alto implica prioridad máxima con entrega preferencial en moto.
+* Pedido pesado y de valor alto implica prioridad dentro de su categoría de vehículo.
+* Pedido liviano y de valor bajo implica prioridad baja.
+
+
+
+
+R5: ADICIONAL POR URGENCIA
+
+* Si el cliente abona un adicional por urgencia:
+
+  * se reduce el tiempo estimado dentro del rango del vehículo asignado.
+  * se prioriza la preparación interna del pedido.
+
+
+
+
+R6: INCIDENCIA DE LA DISTANCIA
+
+* Si el destino está fuera del radio céntrico:
+
+  * se añade tiempo adicional según el vehículo.
+  * los pedidos asignados a moto pueden ser reasignados a camioneta.
+
