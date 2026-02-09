@@ -5,5 +5,4 @@ El proyecto implementa un sistema experto orientado a la logística de distribuc
 
 
 
-<img width="300" height="300" src="https://github.com/user-attachments/assets/2847ae2b-0b0d-4e53-9c3f-ecf0819b9530" />
-<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWVhcmdjbmQwYW9lN2ZmenlkeWhyN29lenY0d2Q2c3RwNnhtMDB2bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bw9MriORZ4gS7PzbFq/giphy.gif" width="300">
+<img width="400" height="400" src="https://github.com/user-attachments/assets/2847ae2b-0b0d-4e53-9c3f-ecf0819b9530" />
