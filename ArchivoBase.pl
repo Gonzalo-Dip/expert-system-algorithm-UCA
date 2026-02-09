@@ -32,11 +32,11 @@ valor(medio).
 valor(bajo).
 
 clasificar_valor(Monto, alto) :-
-    Monto >= 50000.
+    Monto >= 150000.
 
 clasificar_valor(Monto, medio) :-
     Monto >= 20000,
-    Monto < 50000.
+    Monto < 150000.
 
 clasificar_valor(Monto, bajo) :-
     Monto < 20000.
