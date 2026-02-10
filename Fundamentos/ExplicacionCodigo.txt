@@ -1,0 +1,26 @@
+El programa implementa un sistema experto en Prolog para estimar el tiempo de entrega de pedidos de un centro de encomiendas.
+
+Primero se determina el tipo de vehiculo segun el peso del pedido:
+
+* hasta 5 kg se asigna moto,
+* entre 5 y 40 kg camioneta,
+* mas de 40 kg camion.
+
+
+ZONAS DE ENTREGA: Luego el vehiculo puede ajustarse segun la zona de entrega, ya que los pedidos fuera del centro requieren medios de mayor capacidad.
+
+VALOR DEL PEDIDO: El sistema clasifica el valor del pedido en alto, medio o bajo a partir del monto en pesos y con eso define una prioridad inicial.
+
+PRIORIDAD: Si el cliente marca el pedido como urgente, la prioridad se incrementa.
+
+CALCULO: El tiempo de entrega se calcula segun el vehiculo y la hora en que se cargo el pedido, diferenciando antes y despues de las 16 horas.
+
+
+
+RESULTADO:
+
+Finalmente se aplica una reduccion del tiempo cuando la prioridad es muy alta, obteniendo como resultado:
+
+* vehiculo asignado,
+* prioridad final,
+* plazo estimado de entrega.
