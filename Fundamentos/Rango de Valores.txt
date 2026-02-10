@@ -1,0 +1,24 @@
+DEFINICION DE RANGOS SEGUN EL VALOR DEL PEDIDO
+
+Para la evaluacion del tiempo de entrega, el sistema clasifica el pedido segun su valor economico en tres categorias:
+
+VALOR ALTO
+Pedidos cuyo importe total es igual o superior a 150000 pesos.
+Estos pedidos reciben prioridad en la preparacion.
+Pueden adelantar un nivel el tiempo de entrega estimado.
+Se evita la agrupacion con otros repartos de menor valor.
+
+VALOR MEDIO
+Pedidos cuyo importe se encuentra entre 20000 y 150000 pesos.
+Se procesan con prioridad estandar.
+El tiempo de entrega depende principalmente del peso y del vehiculo asignado.
+
+VALOR BAJO
+Pedidos cuyo importe es menor a 20000 pesos.
+No poseen prioridad especial.
+Pueden agruparse con otros pedidos para optimizar la logistica.
+El tiempo de entrega puede extenderse dentro del rango del vehiculo.
+
+INCIDENCIA EN LA ESTIMACION
+A mayor valor del pedido mayor prioridad logistica.
+El sistema combinara valor y peso para determinar la prioridad final.
