@@ -1,4 +1,4 @@
-#**FIRMATLOG**
+#FIRMATLOG 🏅
 
 
 El proyecto implementa un sistema experto orientado a la logística de distribución, capaz de tomar decisiones mediante reglas de inferencia. Su función es asistir al cliente y a la empresa en la estimación del tiempo de entrega, aplicando conocimiento formalizado sobre peso, valor del pedido y recursos de transporte, simulando el razonamiento de un operador con experiencia.
