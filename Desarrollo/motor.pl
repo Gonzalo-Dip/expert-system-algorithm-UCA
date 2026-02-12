@@ -1,8 +1,8 @@
-:- consult('base.pl').
-:- consult('Ajustelogistica.pl').
+% motor.pl
+:- consult('AjustesDeLogica.pl').
 
 % -------------------------------
-% Validaciones simples
+% Validaciones mínimas
 % -------------------------------
 zona_valida(centro).
 zona_valida(fuera_centro).
@@ -14,16 +14,14 @@ si_no(si).
 si_no(no).
 
 % -------------------------------
-% Regla principal del sistema experto
+% Predicado principal del sistema experto
 % plan_entrega(+Peso,+Monto,+Zona,+HoraCarga,+Urgente,
-%              -VehiculoBase,-VehiculoFinal,-ValorCat,-PrioridadFinal,-PlazoFinal,-Explicacion)
+%              -VehBase,-VehFinal,-ValorCat,-PriFinal,-PlazoFinal,-Explicacion)
 % -------------------------------
-
 plan_entrega(Peso, Monto, Zona, HoraCarga, Urgente,
-            VehBase, VehFinal, ValorCat, PriFinal, PlazoFinal,
-            Explicacion) :-
+            VehBase, VehFinal, ValorCat, PriFinal, PlazoFinal, Explicacion) :-
 
-    % Validaciones mínimas
+    % Validaciones
     number(Peso), Peso > 0,
     number(Monto), Monto >= 0,
     zona_valida(Zona),
@@ -33,16 +31,16 @@ plan_entrega(Peso, Monto, Zona, HoraCarga, Urgente,
     % 1) Vehículo por peso
     vehiculo_por_peso(Peso, VehBase),
 
-    % 2) Ajuste de vehículo por zona
+    % 2) Ajuste por zona
     (   vehiculo_ajustado(VehBase, Zona, VehFinal)
     ->  true
     ;   VehFinal = VehBase
     ),
 
-    % 3) Valor del producto
+    % 3) Clasificación por valor
     clasificar_valor(Monto, ValorCat),
 
-    % 4) Prioridad por valor + ajuste por urgencia
+    % 4) Prioridad por valor + urgencia
     prioridad(ValorCat, Pri0),
     ajustar_prioridad(Pri0, Urgente, PriFinal),
 
@@ -50,21 +48,24 @@ plan_entrega(Peso, Monto, Zona, HoraCarga, Urgente,
     ajuste_horario(VehFinal, HoraCarga, Plazo0),
     reducir_tiempo(Plazo0, PriFinal, PlazoFinal),
 
-    % 6) Explicación (lista de “razones”)
+    % 6) Explicación (para mostrar "por qué")
     Explicacion = [
-        razon(vehiculo_por_peso(Peso, VehBase)),
-        razon(vehiculo_ajustado(VehBase, Zona, VehFinal)),
-        razon(clasificar_valor(Monto, ValorCat)),
-        razon(prioridad_por_valor(ValorCat, Pri0)),
-        razon(ajuste_por_urgencia(Pri0, Urgente, PriFinal)),
-        razon(ajuste_horario(VehFinal, HoraCarga, Plazo0)),
-        razon(reducir_tiempo(Plazo0, PriFinal, PlazoFinal))
+        paso(vehiculo_por_peso, Peso, VehBase),
+        paso(vehiculo_ajustado, VehBase, Zona, VehFinal),
+        paso(clasificar_valor, Monto, ValorCat),
+        paso(prioridad, ValorCat, Pri0),
+        paso(ajustar_prioridad, Pri0, Urgente, PriFinal),
+        paso(ajuste_horario, VehFinal, HoraCarga, Plazo0),
+        paso(reducir_tiempo, Plazo0, PriFinal, PlazoFinal)
     ].
 
-% -------------------------------
-% (Opcional) Tiempo base numérico (horas) del vehículo final
-% -------------------------------
-tiempo_estimado(Peso, Monto, Zona, HoraCarga, Urgente, VehFinal, HorasBase) :-
+% (Opcional) obtener horas base del vehículo final
+tiempo_base_final(Peso, Monto, Zona, HoraCarga, Urgente, VehFinal, HorasBase) :-
     plan_entrega(Peso, Monto, Zona, HoraCarga, Urgente,
-                 _VehBase, VehFinal, _ValorCat, _PriFinal, _PlazoFinal, _Exp),
+                 _VB, VehFinal, _Val, _Pri, _Plazo, _Exp),
     tiempo_base(VehFinal, HorasBase).
+
+% (Opcional) versión corta para el bot
+recomendacion(Peso, Monto, Zona, HoraCarga, Urgente, VehFinal, PriFinal, PlazoFinal) :-
+    plan_entrega(Peso, Monto, Zona, HoraCarga, Urgente,
+                 _VB, VehFinal, _Val, PriFinal, PlazoFinal, _Exp).
