@@ -1,0 +1,60 @@
+Desarrollo/tm_validacion_lista_nodes.txt
+
+DISEÑO DE MÁQUINA DE TURING (validación de formato de lista de nodos)
+
+Lenguaje a reconocer:
+L = { [x1,x2,...,xn]  | n>=1 y cada xi es una letra minúscula a..z }
+
+Ejemplos aceptados:
+[a]
+[a,b,c]
+[z,x]
+
+Ejemplos rechazados:
+[]
+[a,]
+[a,,b]
+[a b]
+[a,b,3]
+
+Formalización:
+M = (Q, Σ, Γ, δ, q0, □, F)
+
+Σ (alfabeto de entrada) = { '[', ']', ',', a..z }
+Γ (alfabeto de cinta)   = Σ ∪ { □ }
+
+Q = { q0, qL, qItem, qAfter, qAccept, qReject }
+Estado inicial: q0
+Blanco: □
+Estados de aceptación: F = { qAccept }
+
+Intuición:
+- q0: espera '['
+- qL: espera una letra (primer ítem)
+- qItem: consume letras del ítem (acá cada ítem es 1 letra; si querés IDs largos, ver “Extensión”)
+- qAfter: espera ',' (nuevo ítem) o ']' (fin)
+- qReject: estado trampa
+
+Función de transición δ (solo se listan las relevantes; lo no definido => qReject):
+
+1) Inicio
+δ(q0, '[') = (qL, '[', R)
+δ(q0, x!= '[') = (qReject, x, R)
+
+2) Primer ítem (obligatorio)
+δ(qL, a..z) = (qAfter, a..z, R)
+δ(qL, ']')  = (qReject, ']', R)        // lista vacía no permitida
+δ(qL, other)= (qReject, other, R)
+
+3) Después de un ítem
+δ(qAfter, ',') = (qL, ',', R)          // espera nuevo ítem
+δ(qAfter, ']') = (qAccept, ']', R)     // terminó bien
+δ(qAfter, other) = (qReject, other, R)
+
+4) Aceptación / Rechazo
+qAccept: detener y aceptar
+qReject: detener y rechazar
+
+Extensión (opcional, si querés IDs tipo "depo_1"):
+- En vez de “cada ítem es 1 letra”, permitís secuencias [a..z,0..9,_]+:
+  agregás un estado qId que consume (a..z|0..9|_) hasta ver ',' o ']'.

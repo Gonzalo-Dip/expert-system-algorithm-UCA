@@ -1,0 +1,185 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1695pt" height="832pt" viewBox="0.00 0.00 1695.22 831.57">
+<g id="graph0" class="graph" transform="translate(4,827.5700073242188) scale(1)" data-name="BotDialogDFA">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-827.57 1691.22,-827.57 1691.22,4 -4,4" style=""/>
+<!-- S0 -->
+<g id="node1" class="node" pointer-events="visible" data-name="S0">
+
+<ellipse fill="none" stroke="black" cx="46.17" cy="-401.71" rx="46.35" ry="46.35" style=""/>
+<text text-anchor="middle" x="46.17" y="-397.51" font-family="Times,serif" font-size="14.00" style="">S0 Inicio</text>
+</g>
+<!-- S1 -->
+<g id="node2" class="node" pointer-events="visible" data-name="S1">
+
+<ellipse fill="none" stroke="black" cx="224.11" cy="-401.71" rx="71.81" ry="71.81" style=""/>
+<text text-anchor="middle" x="224.11" y="-397.51" font-family="Times,serif" font-size="14.00" style="">S1 Elegir modo</text>
+</g>
+<!-- S0&#45;&gt;S1 -->
+<g id="edge1" class="edge" data-name="S0-&gt;S1">
+
+<path fill="none" stroke="black" d="M92.94,-401.71C107.58,-401.71 124.27,-401.71 140.7,-401.71" style=""/>
+<polygon fill="black" stroke="black" points="140.49,-405.21 150.49,-401.71 140.49,-398.21 140.49,-405.21" style=""/>
+<text text-anchor="middle" x="122.4" y="-405.91" font-family="Times,serif" font-size="14.00" style="">start</text>
+</g>
+<!-- S2 -->
+<g id="node3" class="node" pointer-events="visible" data-name="S2">
+
+<ellipse fill="none" stroke="black" cx="536.12" cy="-609.71" rx="103.6" ry="103.6" style=""/>
+<text text-anchor="middle" x="536.12" y="-605.51" font-family="Times,serif" font-size="14.00" style="">S2 Cargar datos entrega</text>
+</g>
+<!-- S1&#45;&gt;S2 -->
+<g id="edge2" class="edge" data-name="S1-&gt;S2">
+
+<path fill="none" stroke="black" d="M284.15,-441.32C328.22,-470.89 389.37,-511.91 440.26,-546.06" style=""/>
+<polygon fill="black" stroke="black" points="438.13,-548.85 448.39,-551.51 442.03,-543.03 438.13,-548.85" style=""/>
+<text text-anchor="middle" x="364.17" y="-527.91" font-family="Times,serif" font-size="14.00" style="">modo=1 (entrega)</text>
+</g>
+<!-- S6 -->
+<g id="node7" class="node" pointer-events="visible" data-name="S6">
+
+<ellipse fill="none" stroke="black" cx="536.12" cy="-243.71" rx="91.55" ry="91.55" style=""/>
+<text text-anchor="middle" x="536.12" y="-239.51" font-family="Times,serif" font-size="14.00" style="">S6 Cargar datos TSP</text>
+</g>
+<!-- S1&#45;&gt;S6 -->
+<g id="edge3" class="edge" data-name="S1-&gt;S6">
+
+<path fill="none" stroke="black" d="M279.74,-355.57C290.64,-347.45 302.28,-339.51 313.77,-332.91 352.68,-310.55 398.29,-291.14 437.97,-276.19" style=""/>
+<polygon fill="black" stroke="black" points="439.15,-279.48 447.3,-272.72 436.71,-272.92 439.15,-279.48" style=""/>
+<text text-anchor="middle" x="364.17" y="-337.91" font-family="Times,serif" font-size="14.00" style="">modo=2 (TSP)</text>
+</g>
+<!-- SX -->
+<g id="node12" class="node" pointer-events="visible" data-name="SX">
+
+<ellipse fill="none" stroke="black" cx="536.12" cy="-439.71" rx="44.07" ry="44.07" style=""/>
+<ellipse fill="none" stroke="black" cx="536.12" cy="-439.71" rx="48.07" ry="48.07" style=""/>
+<text text-anchor="middle" x="536.12" y="-435.51" font-family="Times,serif" font-size="14.00" style="">SX Salir</text>
+</g>
+<!-- S1&#45;&gt;SX -->
+<g id="edge4" class="edge" data-name="S1-&gt;SX">
+
+<path fill="none" stroke="black" d="M295.84,-410.38C350.67,-417.1 425.7,-426.29 477.04,-432.59" style=""/>
+<polygon fill="black" stroke="black" points="476.41,-436.04 486.76,-433.78 477.26,-429.09 476.41,-436.04" style=""/>
+<text text-anchor="middle" x="364.17" y="-427.91" font-family="Times,serif" font-size="14.00" style="">modo=0 (salir)</text>
+</g>
+<!-- S3 -->
+<g id="node4" class="node" pointer-events="visible" data-name="S3">
+
+<ellipse fill="none" stroke="black" cx="875.19" cy="-576.71" rx="83.37" ry="83.37" style=""/>
+<text text-anchor="middle" x="875.19" y="-572.51" font-family="Times,serif" font-size="14.00" style="">S3 Validar entrega</text>
+</g>
+<!-- S2&#45;&gt;S3 -->
+<g id="edge5" class="edge" data-name="S2-&gt;S3">
+
+<path fill="none" stroke="black" d="M639.62,-599.67C684.52,-595.27 736.85,-590.15 780.68,-585.86" style=""/>
+<polygon fill="black" stroke="black" points="780.8,-589.37 790.41,-584.91 780.12,-582.4 780.8,-589.37" style=""/>
+<text text-anchor="middle" x="715.71" y="-600.91" font-family="Times,serif" font-size="14.00" style="">datos ingresados</text>
+</g>
+<!-- S4 -->
+<g id="node5" class="node" pointer-events="visible" data-name="S4">
+
+<ellipse fill="none" stroke="black" cx="1205.31" cy="-576.71" rx="148.17" ry="148.17" style=""/>
+<text text-anchor="middle" x="1205.31" y="-572.51" font-family="Times,serif" font-size="14.00" style="">S4 Consultar Prolog (plan_entrega)</text>
+</g>
+<!-- S3&#45;&gt;S4 -->
+<g id="edge6" class="edge" data-name="S3-&gt;S4">
+
+<path fill="none" stroke="black" d="M958.99,-576.71C985.33,-576.71 1015.42,-576.71 1045.28,-576.71" style=""/>
+<polygon fill="black" stroke="black" points="1045.2,-580.21 1055.2,-576.71 1045.2,-573.21 1045.2,-580.21" style=""/>
+<text text-anchor="middle" x="1007.92" y="-580.91" font-family="Times,serif" font-size="14.00" style="">valid OK</text>
+</g>
+<!-- SE -->
+<g id="node11" class="node" pointer-events="visible" data-name="SE">
+
+<polygon fill="none" stroke="black" points="1205.31,-410.71 1082.44,-392.71 1205.31,-374.71 1328.19,-392.71 1205.31,-410.71" style=""/>
+<text text-anchor="middle" x="1205.31" y="-388.51" font-family="Times,serif" font-size="14.00" style="">SE Error / reintento</text>
+</g>
+<!-- S3&#45;&gt;SE -->
+<g id="edge7" class="edge" data-name="S3-&gt;SE">
+
+<path fill="none" stroke="black" d="M931.49,-514.72C964.68,-481.41 1009.6,-442.59 1057.23,-419.71 1074.64,-411.34 1094.35,-405.56 1113.56,-401.56" style=""/>
+<polygon fill="black" stroke="black" points="1114.14,-405.01 1123.3,-399.69 1112.82,-398.14 1114.14,-405.01" style=""/>
+<text text-anchor="middle" x="1007.92" y="-473.91" font-family="Times,serif" font-size="14.00" style="">valid FAIL</text>
+</g>
+<!-- S5 -->
+<g id="node6" class="node" pointer-events="visible" data-name="S5">
+
+<ellipse fill="none" stroke="black" cx="1564.35" cy="-700.71" rx="122.73" ry="122.73" style=""/>
+<text text-anchor="middle" x="1564.35" y="-696.51" font-family="Times,serif" font-size="14.00" style="">S5 Mostrar resultado entrega</text>
+</g>
+<!-- S4&#45;&gt;S5 -->
+<g id="edge8" class="edge" data-name="S4-&gt;S5">
+
+<path fill="none" stroke="black" d="M1345.63,-625.09C1375.78,-635.56 1407.51,-646.58 1437.12,-656.87" style=""/>
+<polygon fill="black" stroke="black" points="1435.91,-660.15 1446.5,-660.12 1438.2,-653.54 1435.91,-660.15" style=""/>
+<text text-anchor="middle" x="1397.44" y="-653.91" font-family="Times,serif" font-size="14.00" style="">respuesta</text>
+</g>
+<!-- S5&#45;&gt;S1 -->
+<g id="edge9" class="edge" data-name="S5-&gt;S1">
+
+<path fill="none" stroke="black" d="M1444.16,-726.86C1375.06,-739.81 1286.18,-752.71 1206.31,-752.71 535.12,-752.71 535.12,-752.71 535.12,-752.71 400.12,-752.71 386.81,-658.23 313.77,-544.71 298.76,-521.39 282.69,-495.69 268.41,-472.6" style=""/>
+<polygon fill="black" stroke="black" points="271.44,-470.83 263.2,-464.16 265.48,-474.51 271.44,-470.83" style=""/>
+<text text-anchor="middle" x="875.19" y="-756.91" font-family="Times,serif" font-size="14.00" style="">nueva consulta</text>
+</g>
+<!-- S7 -->
+<g id="node8" class="node" pointer-events="visible" data-name="S7">
+
+<ellipse fill="none" stroke="black" cx="875.19" cy="-243.71" rx="71.82" ry="71.82" style=""/>
+<text text-anchor="middle" x="875.19" y="-239.51" font-family="Times,serif" font-size="14.00" style="">S7 Validar TSP</text>
+</g>
+<!-- S6&#45;&gt;S7 -->
+<g id="edge10" class="edge" data-name="S6-&gt;S7">
+
+<path fill="none" stroke="black" d="M627.89,-243.71C678.9,-243.71 742.09,-243.71 791.69,-243.71" style=""/>
+<polygon fill="black" stroke="black" points="791.51,-247.21 801.51,-243.71 791.51,-240.21 791.51,-247.21" style=""/>
+<text text-anchor="middle" x="715.71" y="-247.91" font-family="Times,serif" font-size="14.00" style="">lugares+coords+pref</text>
+</g>
+<!-- S8 -->
+<g id="node9" class="node" pointer-events="visible" data-name="S8">
+
+<ellipse fill="none" stroke="black" cx="1205.31" cy="-211.71" rx="145.34" ry="145.34" style=""/>
+<text text-anchor="middle" x="1205.31" y="-207.51" font-family="Times,serif" font-size="14.00" style="">S8 Consultar Prolog (resolver_tsp)</text>
+</g>
+<!-- S7&#45;&gt;S8 -->
+<g id="edge11" class="edge" data-name="S7-&gt;S8">
+
+<path fill="none" stroke="black" d="M946.98,-236.8C977.12,-233.86 1013.54,-230.31 1049.38,-226.82" style=""/>
+<polygon fill="black" stroke="black" points="1049.35,-230.34 1058.97,-225.88 1048.67,-223.37 1049.35,-230.34" style=""/>
+<text text-anchor="middle" x="1007.92" y="-237.91" font-family="Times,serif" font-size="14.00" style="">valid OK</text>
+</g>
+<!-- S7&#45;&gt;SE -->
+<g id="edge12" class="edge" data-name="S7-&gt;SE">
+
+<path fill="none" stroke="black" d="M942.55,-269.5C974.61,-284.41 1011.94,-305.66 1039.23,-332.91 1050.99,-344.66 1043.74,-355.97 1057.23,-365.71 1069.68,-374.69 1084.23,-380.97 1099.24,-385.31" style=""/>
+<polygon fill="black" stroke="black" points="1098.21,-388.65 1108.76,-387.76 1099.95,-381.88 1098.21,-388.65" style=""/>
+<text text-anchor="middle" x="1007.92" y="-337.91" font-family="Times,serif" font-size="14.00" style="">valid FAIL</text>
+</g>
+<!-- S9 -->
+<g id="node10" class="node" pointer-events="visible" data-name="S9">
+
+<ellipse fill="none" stroke="black" cx="1564.35" cy="-90.71" rx="90.91" ry="90.91" style=""/>
+<text text-anchor="middle" x="1564.35" y="-86.51" font-family="Times,serif" font-size="14.00" style="">S9 Mostrar ruta TSP</text>
+</g>
+<!-- S8&#45;&gt;S9 -->
+<g id="edge13" class="edge" data-name="S8-&gt;S9">
+
+<path fill="none" stroke="black" d="M1343.33,-165.27C1384.68,-151.26 1429.16,-136.18 1467.24,-123.28" style=""/>
+<polygon fill="black" stroke="black" points="1468.02,-126.71 1476.37,-120.18 1465.78,-120.08 1468.02,-126.71" style=""/>
+<text text-anchor="middle" x="1397.44" y="-159.91" font-family="Times,serif" font-size="14.00" style="">respuesta</text>
+</g>
+<!-- S9&#45;&gt;S1 -->
+<g id="edge14" class="edge" data-name="S9-&gt;S1">
+
+<path fill="none" stroke="black" d="M1475.47,-70.68C1403.51,-56.03 1298.86,-38.71 1206.31,-38.71 535.12,-38.71 535.12,-38.71 535.12,-38.71 386.54,-38.71 294.02,-216.74 251.92,-323.44" style=""/>
+<polygon fill="black" stroke="black" points="248.78,-321.85 248.43,-332.44 255.3,-324.39 248.78,-321.85" style=""/>
+<text text-anchor="middle" x="875.19" y="-42.91" font-family="Times,serif" font-size="14.00" style="">nueva consulta</text>
+</g>
+<!-- SE&#45;&gt;S1 -->
+<g id="edge15" class="edge" data-name="SE-&gt;S1">
+
+<path fill="none" stroke="black" d="M1111.3,-387.99C966.24,-381.42 677.36,-371.52 432.57,-382.71 390.97,-384.61 344.83,-388.64 306.64,-392.51" style=""/>
+<polygon fill="black" stroke="black" points="306.67,-388.98 297.08,-393.49 307.39,-395.95 306.67,-388.98" style=""/>
+<text text-anchor="middle" x="715.71" y="-382.91" font-family="Times,serif" font-size="14.00" style="">volver al menú</text>
+</g>
+</g>
+</svg>
