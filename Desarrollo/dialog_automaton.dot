@@ -1,0 +1,41 @@
+// Desarrollo/dialog_automaton.dot
+digraph BotDialogDFA {
+  rankdir=LR;
+  node [shape=circle];
+
+  S0 [label="S0 Inicio"];
+  S1 [label="S1 Elegir modo"];
+  S2 [label="S2 Cargar datos entrega"];
+  S3 [label="S3 Validar entrega"];
+  S4 [label="S4 Consultar Prolog (plan_entrega)"];
+  S5 [label="S5 Mostrar resultado entrega"];
+  S6 [label="S6 Cargar datos TSP"];
+  S7 [label="S7 Validar TSP"];
+  S8 [label="S8 Consultar Prolog (resolver_tsp)"];
+  S9 [label="S9 Mostrar ruta TSP"];
+  SE [label="SE Error / reintento", shape=diamond];
+  SX [label="SX Salir", shape=doublecircle];
+
+  S0 -> S1 [label="start"];
+
+  S1 -> S2 [label="modo=1 (entrega)"];
+  S1 -> S6 [label="modo=2 (TSP)"];
+  S1 -> SX [label="modo=0 (salir)"];
+
+  // Entrega
+  S2 -> S3 [label="datos ingresados"];
+  S3 -> S4 [label="valid OK"];
+  S3 -> SE [label="valid FAIL"];
+  S4 -> S5 [label="respuesta"];
+  S5 -> S1 [label="nueva consulta"];
+
+  // TSP
+  S6 -> S7 [label="lugares+coords+pref"];
+  S7 -> S8 [label="valid OK"];
+  S7 -> SE [label="valid FAIL"];
+  S8 -> S9 [label="respuesta"];
+  S9 -> S1 [label="nueva consulta"];
+
+  // Error
+  SE -> S1 [label="volver al menú"];
+}
